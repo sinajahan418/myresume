@@ -1,7 +1,7 @@
-import type { NextConfig } from "next";
+const nextConfig = {};
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+module.exports = nextConfig;
 
-export default nextConfig;
+const withVideos = require("next-videos");
+
+module.exports = withVideos();
