@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import NavBar from "@/components/NavBar/NavBar";
-import Hero from "@/components/Hero/Hero";
-import Highlights from "@/components/Highlights/Highlights";
-import Model from "@/components/Model/Model";
-import Features from "@/components/Features/Features";
-import HowItWorks from "@/components/HowItWorks/HowItWorks";
+import Features from "@/components/index/Features/Features";
+import Hero from "@/components/index/Hero/Hero";
+import Highlights from "@/components/index/Highlights/Highlights";
+import HowItWorks from "@/components/index/HowItWorks/HowItWorks";
+import Model from "@/components/index/Model/Model";
+
+
 
 // import { useRef } from "react";
 // import { ScrollTrigger } from "gsap/all";

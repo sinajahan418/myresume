@@ -7,7 +7,7 @@ import Image from "next/image";
 import { animateWithGsap } from "@/utils/animations";
 
 const Features = () => {
-  const videoRef = useRef();
+  const videoRef = useRef<any>();
 
   useGSAP(() => {
     gsap.to("#exploreVideo", {

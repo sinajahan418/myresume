@@ -26,6 +26,14 @@ body::-webkit-scrollbar{
 canvas {
   touch-action: none;
 }
+.swal-modal{
+  color: #fff;
+}
+.swal-footer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .screen-max-width {
   margin-inline-start: auto;

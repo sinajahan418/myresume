@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import { rightImg, watchImg } from "../../utils";
+import { rightImg, watchImg } from "@/utils";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import VideoCarousel from "../VideoCarsoul/VideoCarsoul";
