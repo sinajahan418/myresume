@@ -1,11 +1,11 @@
 import React from 'react';
 
-const PUser = () => {
+const page = () => {
   return (
     <div>
-      
+      safasf
     </div>
   );
 }
 
-export default PUser;
+export default page;

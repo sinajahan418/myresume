@@ -10,13 +10,13 @@ import swal from "sweetalert";
 const page = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [emai, setEmail] = useState("");
+  const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
     setLoading(true);
-    const user = { username, password, emai };
-    const res = await fetch("", {
+    const user = { username, password, email };
+    const res = await fetch("http://localhost:5000/api/v1/auth/signup", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -24,7 +24,7 @@ const page = () => {
       body: JSON.stringify(user),
     });
     setLoading(false);
-    if (res.status == 200) {
+    if (res.status == 201) {
       swal({
         title: "login successfully",
         icon: "success",
@@ -70,7 +70,7 @@ const page = () => {
           <label htmlFor="">ایمیل</label>
           <div className=" flex items-center justify-between ">
             <input
-              value={emai}
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
               type="email"
               placeholder="email"

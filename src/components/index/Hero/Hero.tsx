@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { heroVideo, smallHeroVideo } from "@/utils";
@@ -54,7 +54,10 @@ const Hero = () => {
         id="cta"
         className="flex flex-col items-center pt-5 opacity-0 translate-y-20"
       >
-        <a href="#highlights" className="bg-blue py-2 px-5 rounded-full shadow-xl hover:bg-black hover:text-white">
+        <a
+          href="#highlights"
+          className="bg-blue py-2 px-5 rounded-full shadow-xl hover:bg-black hover:text-white"
+        >
           Buy
         </a>
         <p className="font-normal text-xl">From $199/month or $999</p>

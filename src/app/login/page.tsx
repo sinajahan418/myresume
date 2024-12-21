@@ -8,14 +8,14 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import swal from "sweetalert";
 
 const page = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
     setLoading(true);
-    const user = { username, password };
-    const res = await fetch("", {
+    const user = { email, password };
+    const res = await fetch("http://localhost:5000/api/v1/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -23,27 +23,28 @@ const page = () => {
       body: JSON.stringify(user),
     });
     setLoading(false);
+    const userData = await res.json();
     if (res.status == 200) {
       swal({
         title: "login successfully",
         icon: "success",
-      });
-      setUsername("");
+      }).then(() => location.replace("/P-User"));
+      setEmail("");
       setPassword("");
-      localStorage.setItem("user", JSON.stringify(user));
+      localStorage.setItem("user", JSON.stringify(userData.user));
       //   setAuthUser(user);
     }
-    console.log("res==>>>>>>", res);
   };
-  useGSAP(()=>{
+
+  useGSAP(() => {
     gsap.to(".anim", {
-        opacity: 1,
-        delay: 0.2,
-        y:0,
-        marginTop: "0px",
-        duration: 1
-    })
-  },[])
+      opacity: 1,
+      delay: 0.2,
+      y: 0,
+      marginTop: "0px",
+      duration: 1,
+    });
+  }, []);
 
   return (
     <div className=" opacity-0 mt-16 anim w-full h-full flex items-center justify-center">
@@ -52,12 +53,12 @@ const page = () => {
         className="bg-[#181717] rounded-2xl  shadow-xl py-6 flex flex-col"
       >
         <div className="px-4 flex flex-col gap-2">
-          <label htmlFor="">username</label>
+          <label htmlFor="">ایمیل</label>
           <div className=" flex items-center justify-between ">
             <input
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
               placeholder="username"
               required
               className="px-2 text-white p-1 focus:outline-none bg-zinc rounded-2xl shadow-lg"
@@ -66,7 +67,7 @@ const page = () => {
           </div>
         </div>
         <div className="px-4 flex flex-col gap-2">
-          <label htmlFor="">password</label>
+          <label htmlFor="">رمز عبور</label>
           <div className=" flex items-center justify-between ">
             <input
               value={password}
@@ -88,7 +89,7 @@ const page = () => {
             فراموشی رمز عبور
           </Link>
           <Link href="" className="text-blue">
-           بازگردانی رمز عبور
+            بازگردانی رمز عبور
           </Link>
         </div>
         {loading ? (

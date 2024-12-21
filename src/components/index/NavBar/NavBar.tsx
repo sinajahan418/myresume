@@ -1,3 +1,4 @@
+"use client";
 import { appleImg, bagImg, searchImg } from "@/utils";
 import { navLists } from "@/constants";
 import Image from "next/image";
@@ -5,6 +6,10 @@ import { FaUser } from "react-icons/fa";
 import Link from "next/link";
 
 const Navbar = () => {
+  const user = localStorage.getItem("user");
+  if (user) {
+    JSON.parse(user);
+  }
   return (
     <header className="w-full py-5 sm:px-10 px-5 flex justify-between items-center">
       <nav className="flex w-full screen-max-width">
@@ -12,7 +17,7 @@ const Navbar = () => {
           <Link href="/">
             <Image src={appleImg} alt="Apple" width={14} height={18} />
           </Link>
-          <Link href="/login">
+          <Link href={user ? "/P-User" : "/login"}>
             <FaUser />
           </Link>
         </div>

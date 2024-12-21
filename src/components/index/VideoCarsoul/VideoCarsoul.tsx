@@ -199,47 +199,44 @@ const VideoCarousel = () => {
         ))}
       </div>
 
-  <div className="relative flex items-center justify-center mt-10">
-  <div className="flex items-center justify-center py-4 px-7 bg-gray-300 backdrop-blur rounded-full">
-    {hightlightsSlides.map((_, i) => (
-      <div
-        key={i}
-        className={
-          _.id == videoId
-            ? "mx-2 p-[3px] flex items-center justify-center w-4 bg-gray-100 rounded-full relative cursor-pointer"
-            : "mx-2 p-[3px] flex items-center justify-center  bg-gray-100 rounded-full relative cursor-pointer"
-        }
-        ref={(el) => videoDivRef.current[i] == el}
-      >
-        <span
-          className="absolute rounded-full"
-          ref={(el) => videoSpanRef.current[i] == el}
-        />
+      <div className="relative flex items-center justify-center mt-10">
+        <div className="flex items-center justify-center py-4 px-7 bg-gray-300 backdrop-blur rounded-full">
+          {hightlightsSlides.map((_, i) => (
+            <div
+              key={i}
+              className={
+                _.id == videoId
+                  ? "mx-2 p-[3px] flex items-center justify-center w-4 bg-gray-100 rounded-full relative cursor-pointer"
+                  : "mx-2 p-[3px] flex items-center justify-center  bg-gray-100 rounded-full relative cursor-pointer"
+              }
+              ref={(el) => videoDivRef.current[i] == el}
+            >
+              <span
+                className="absolute rounded-full"
+                ref={(el) => videoSpanRef.current[i] == el}
+              />
+            </div>
+          ))}
+        </div>
+
+        <button className="control-btn  ml-4 p-3 rounded-full bg-gray-300 backdrop-blur flex-center">
+          <Image
+            src={isLastVideo ? replayImg : !isPlaying ? playImg : pauseImg}
+            alt={isLastVideo ? "replay" : !isPlaying ? "play" : "pause"}
+            width={14}
+            height={18}
+            onClick={
+              isLastVideo
+                ? () => handleProcess("video-reset")
+                : !isPlaying
+                ? () => handleProcess("play")
+                : () => handleProcess("pause")
+            }
+          />
+        </button>
       </div>
-    ))}
-  </div>
-  
-  <button className="control-btn  ml-4 p-3 rounded-full bg-gray-300 backdrop-blur flex-center">
-    <Image
-      src={isLastVideo ? replayImg : !isPlaying ? playImg : pauseImg}
-      alt={isLastVideo ? "replay" : !isPlaying ? "play" : "pause"}
-      width={14}
-      height={18}
-      onClick={
-        isLastVideo
-          ? () => handleProcess("video-reset")
-          : !isPlaying
-          ? () => handleProcess("play")
-          : () => handleProcess("pause")
-      }
-    />
-  </button>
-  </div> 
     </>
   );
 };
 
 export default VideoCarousel;
-
- 
-

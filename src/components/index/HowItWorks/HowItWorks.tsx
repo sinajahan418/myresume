@@ -81,7 +81,8 @@ const HowItWorks = () => {
         <div className="hiw-text-container flex md:flex-row flex-col justify-between items-start gap-11">
           <div className="flex flex-1 justify-center flex-col">
             <p className="hiw-text g_fadeIn opacity-0 translate-y-[100px] text-gray text-xl font-normal md:font-semibold">
-              A17 Pro is an entirely new class of iPhone chip that delivers our{" "}
+              A17 Pro is an entirely new className of iPhone chip that delivers
+              our{" "}
               <span className="text-white">
                 best graphic performance by far
               </span>
@@ -102,7 +103,7 @@ const HowItWorks = () => {
               New
             </p>
             <p className="hiw-bigtext text-white text-3xl md:text-5xl font-normal md:font-semibold my-2">
-              Pro-class GPU
+              Pro-className GPU
             </p>
             <p className="hiw-text text-gray text-xl font-normal md:font-semibold">
               with 6 cores

@@ -2,7 +2,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image, { StaticImageData } from "next/image";
-import {  useState } from "react";
+import { useState } from "react";
 
 interface ModeProps {
   index: number;
@@ -59,7 +59,10 @@ const ModelView = ({
       }`}
     >
       {size === "large" ? (
-        <div id={gsapType} className="flex items-center justify-center opacity-0">
+        <div
+          id={gsapType}
+          className="flex items-center justify-center opacity-0"
+        >
           <div className=" rounded-2xl">
             <Image
               src={item.img.src}

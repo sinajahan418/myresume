@@ -14,11 +14,7 @@ const Model = () => {
     color: ["#8F8A81", "#FFE7B9", "#6F6C64"],
     img: yellowImg,
   });
-  
-console.log(model.img);
 
-  
-  
   // camera control for the model view
   const cameraControlSmall = useRef();
   const cameraControlLarge = useRef();
@@ -53,10 +49,8 @@ console.log(model.img);
               item={model}
               size={size}
             />
-      
           </div>
           <div className="mx-auto w-full">
-            
             <p className="text-sm font-light text-center mb-5">{model.title}</p>
 
             <div className="flex items-center justify-center">
