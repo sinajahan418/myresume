@@ -1,130 +1,59 @@
 "use client";
+import { yellowImg } from "@/utils";
+import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import React from "react";
+import React, { useEffect } from "react";
 import { BiCategoryAlt } from "react-icons/bi";
 import { FaUsers } from "react-icons/fa";
+import swal from "sweetalert";
 import { GrUserSettings } from "react-icons/gr";
 import { IoMdHelpCircle } from "react-icons/io";
+import { LuLogOut } from "react-icons/lu";
 import { MdDashboard, MdPayment } from "react-icons/md";
 import { TbBrandProducthunt, TbMessageReport } from "react-icons/tb";
 
 const UserLyout = () => {
-  const pathname = usePathname();
-  // const user = JSON.parse(localStorage.getItem("user"));
+  const userString = localStorage.getItem("user");
+  const user = userString ? JSON.parse(userString) : null;
+
+  const handelLogout = async () => {
+    const res = await fetch("http://localhost:5000/api/v1/auth/logout", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    });
+    if (res.ok) {
+      localStorage.removeItem("user");
+      location.replace("/");
+      swal({ title: "با موفقیت رفتی بیرون", icon: "success" });
+    }
+  };
+  useEffect(() => {
+    if (!userString) {
+      location.replace("/");
+    }
+  }, []);
 
   return (
-    <div className="sm:mx-10 sm:m-5 flex flex-row gap-5">
-      <div className="h-screen  bg-zinc">
-        <div className="">
-          <div className="py-3 pl-3">
-            <ul className="sidebarList">
-              <Link href="/P-User" className="bg-blue">
-                <li
-                  className={
-                    pathname == "/P-User"
-                      ? "flex py-4 pl-4 bg-black items-center  rounded-l-2xl shadow-xl justify-between gap-5"
-                      : "flex p-4 items-center  justify-between gap-5"
-                  }
-                >
-                  <p className="sidebarIcon">
-                    <MdDashboard />
-                  </p>
-                  داشبورد
-                </li>
-              </Link>
-              <Link href="/dashbord/users">
-                <li className="flex p-4 items-center justify-between gap-5">
-                  <p className="sidebarIcon">
-                    <FaUsers />
-                  </p>
-                  کاربر ها
-                </li>
-              </Link>
-              <Link
-                href="/dashbord/products"
-                className={
-                  pathname == "/dashbord/products" ? "bg-slate-950" : ""
-                }
-              >
-                <li
-                  className={
-                    pathname == "/dashbord/products"
-                      ? "bg-slate-950 flex p-4 items-center rounded-xl shadow-2xl justify-between gap-5"
-                      : "flex p-4 items-center justify-between gap-5"
-                  }
-                >
-                  <p className="sidebarIcon">
-                    <TbBrandProducthunt />
-                  </p>
-                  محصولات
-                </li>
-              </Link>
-            </ul>
-          </div>
-          <div className="sidebarMenu">
-            <ul className="sidebarList">
-              <Link href="/dashbord/payment" className="link">
-                <li className="flex p-4 items-center justify-between gap-5">
-                  <p className="sidebarIcon">
-                    <MdPayment />
-                  </p>
-                  پرداخت ها
-                </li>
-              </Link>
-              <Link href="/dashbord/newProduct" className="link">
-                <li className="flex p-4 items-center justify-between gap-5">
-                  <p className="sidebarIcon">
-                    <TbBrandProducthunt />
-                  </p>
-                  ایجاد محصول
-                </li>
-              </Link>
-              <Link href="/dashbord/addCategory" className="link">
-                <li className="flex p-4 items-center justify-between gap-5">
-                  <p className="sidebarIcon">
-                    <BiCategoryAlt />
-                  </p>
-                  افزودن دسته بندی
-                </li>
-              </Link>
-              <Link href="/dashbord/report" className="link">
-                <li className="flex p-4 items-center justify-between gap-5">
-                  <p className="sidebarIcon">
-                    <TbMessageReport />
-                  </p>
-                  ریپورت ها
-                </li>
-              </Link>
-              <Link href="/dashbord/userSetting" className="link">
-                <li className="flex p-4 items-center justify-between gap-5">
-                  <p className="sidebarIcon">
-                    <GrUserSettings />
-                  </p>
-                  تنظیمات کاربر
-                </li>
-              </Link>
-            </ul>
-          </div>
-          <div className="sidebarMenu">
-            <ul className="sidebarList">
-              <Link href="/dashbord/help">
-                <li className="flex p-4 items-center justify-between gap-5">
-                  <p className="sidebarIcon">
-                    <IoMdHelpCircle />
-                  </p>
-                  کمک
-                </li>
-              </Link>
-            </ul>
-          </div>
+    <nav className=" flex items-center justify-center">
+      <div className="flex w-[60%] bg-zinc rounded-3xl items-center justify-between px-4 p-2 sm:m-10">
+        <div className="flex gap-10 w-full items-center justify-between px-4 p-2 ">
+          <LuLogOut onClick={handelLogout} />
+          <span>{user.username}</span>
+        </div>
+        <div>
+          <Image
+            src={yellowImg}
+            alt=""
+            width={30}
+            height={10}
+            className=" rounded-full h-5"
+          />
         </div>
       </div>
-      <div>
-        <nav>navbar</nav>
-        <section>ss</section>
-      </div>
-    </div>
+    </nav>
   );
 };
 

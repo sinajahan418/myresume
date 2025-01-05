@@ -27,7 +27,6 @@ const ModelView = ({
   item,
   size,
 }: ModeProps) => {
-  console.log(size);
 
   const tl = gsap.timeline();
   const [smallRotation, setSmallRotation] = useState(0);

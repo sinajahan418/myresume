@@ -39,11 +39,11 @@ const Highlights = () => {
           <div className="flex flex-wrap items-end gap-5">
             <p className="link text-blue hover:underline cursor-pointer flex items-center text-xl opacity-0 translate-y-20">
               Watch the film
-              <Image src={watchImg} alt="watch" className="ml-2" />
+              <Image src={watchImg} width={20} height={20} alt="watch" className="ml-2" />
             </p>
             <p className="link text-blue hover:underline cursor-pointer flex items-center text-xl opacity-0 translate-y-20">
               Watch the event
-              <Image src={rightImg} alt="right" className="ml-2" />
+              <Image src={rightImg} width={7} height={11} alt="right" className="ml-2" />
             </p>
           </div>
         </div>

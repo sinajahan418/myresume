@@ -4,12 +4,17 @@ import { navLists } from "@/constants";
 import Image from "next/image";
 import { FaUser } from "react-icons/fa";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const user = localStorage.getItem("user");
-  if (user) {
-    JSON.parse(user);
-  }
+  const [user, setUser] = useState<string | null>(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
   return (
     <header className="w-full py-5 sm:px-10 px-5 flex justify-between items-center">
       <nav className="flex w-full screen-max-width">
@@ -34,7 +39,9 @@ const Navbar = () => {
 
         <div className="flex items-baseline gap-7 max-sm:justify-end max-sm:flex-1">
           <Image src={searchImg} alt="search" width={18} height={18} />
-          <Image src={bagImg} alt="bag" width={18} height={18} />
+          <Link href="/basket">
+            <Image src={bagImg} alt="bag" width={18} height={18} />
+          </Link>
         </div>
       </nav>
     </header>

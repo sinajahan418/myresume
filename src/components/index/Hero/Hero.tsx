@@ -9,15 +9,15 @@ const Hero = () => {
     window.innerWidth < 760 ? smallHeroVideo : heroVideo
   );
 
-  const handleVideoSrcSet = () => {
-    if (window.innerWidth < 760) {
-      setVideoSrc(smallHeroVideo);
-    } else {
-      setVideoSrc(heroVideo);
-    }
-  };
-
   useEffect(() => {
+    const handleVideoSrcSet = () => {
+      if (window.innerWidth < 760) {
+        setVideoSrc(smallHeroVideo);
+      } else {
+        setVideoSrc(heroVideo);
+      }
+    };
+    handleVideoSrcSet();
     window.addEventListener("resize", handleVideoSrcSet);
 
     return () => {

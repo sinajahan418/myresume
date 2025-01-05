@@ -76,12 +76,16 @@ const Features = () => {
                 <div className="overflow-hidden flex-1 h-[50vh]">
                   <Image
                     src={explore1Img}
+                    height={150}
+                    width={150}
                     alt="titanium"
                     className="feature-video rounded-2xl w-full h-full object-cover object-center scale-150 opacity-0 g_grow"
                   />
                 </div>
                 <div className="overflow-hidden flex-1 h-[50vh]">
                   <Image
+                   height={150}
+                   width={150}
                     src={explore2Img}
                     alt="titanium 2"
                     className="feature-video rounded-2xl w-full h-full object-cover object-center scale-150 opacity-0 g_grow"

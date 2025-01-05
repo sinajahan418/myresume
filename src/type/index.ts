@@ -14,9 +14,9 @@ export interface Products {
   _id: string;
   name: string;
   description: string;
-  price: string;
+  price: number;
   image: string;
-  category: string;
+  category: { _id: string; name: string };
   createdAt: string;
   updatedAt: string;
 }
