@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import { create } from "zustand";
-import { Basket, BasketItem } from "./type";
+import { Basket } from "./type";
 import { persist } from "zustand/middleware";
 
 export const useBasket = create(

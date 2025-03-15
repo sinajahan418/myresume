@@ -2,14 +2,14 @@ import hero from "../../public/assets/images/hero.jpeg";
 
 export const heroImg = hero;
 
-import hmv from "../../public/hero.mp4";
-import smallmv from "../../public/smallHero.mp4";
-import highlightFirstmv from "../../public/highlight-first.mp4";
-import highlightSectmv from "../../public/hightlight-third.mp4";
-import highlightThirdmv from "../../public/hightlight-sec.mp4";
-import highlightFourthmv from "../../public/hightlight-fourth.mp4";
-import exploremv from "../../public/explore.mp4";
-import framemv from "../../public/frame.mp4";
+const hmv = "/hero.mp4";
+const smallmv = "/smallHero.mp4";
+const highlightFirstmv = "/highlight-first.mp4";
+const highlightSectmv = "/hightlight-third.mp4";
+const highlightThirdmv = "/hightlight-sec.mp4";
+const highlightFourthmv = "/hightlight-fourth.mp4";
+const exploremv = "/explore.mp4";
+const framemv = "/frame.mp4";
 
 import apple from "../../public/assets/images/apple.svg";
 import search from "../../public/assets/images/search.svg";

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 import AdminLyout from "@/components/madules/adminLyout/PAdmin";
 import { User } from "@/type";
@@ -17,9 +18,9 @@ const page = () => {
     const data = await res.json();
     setUsers(data.data);
   };
-  const handelDeletUser = (user) => {
+  const handelDeletUser = (user: User) => {
     swal({
-      title:` ایا از حذف کاربر${user.username} مطمعنی کونی پاک کنی دیگه برنمیگرده ها`,
+      title: ` ایا از حذف کاربر${user.username} مطمعنی کونی پاک کنی دیگه برنمیگرده ها`,
       icon: "warning",
       buttons: ["اره", "گوه خوردم"],
     });

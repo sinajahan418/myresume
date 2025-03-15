@@ -10,11 +10,17 @@ const HomeProducts = () => {
   const [products, setProducts] = useState<Products[] | undefined>([]);
   const [loding, setLoding] = useState(false);
   const getAllProducts = async () => {
-    setLoding(true);
-    const res = await fetch("http://localhost:5000/api/v1/products/");
-    const data = await res.json();
-    setProducts(data);
-    setLoding(false);
+    try {
+      setLoding(true);
+      const res = await fetch("http://localhost:5000/api/v1/products/");
+      const data = await res.json();
+      setProducts(data);
+      setLoding(false);
+      
+    } catch (error) {
+      console.log(error);
+      
+    }
   };
   useEffect(() => {
     getAllProducts();

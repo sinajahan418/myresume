@@ -2,14 +2,10 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image, { StaticImageData } from "next/image";
-import { useState } from "react";
 
 interface ModeProps {
   index: number;
-  groupRef: string;
   gsapType: string;
-  controlRef: any;
-  setRotationState: React.Dispatch<React.SetStateAction<number>>;
   item: {
     title: string;
     color: string[];
@@ -20,17 +16,11 @@ interface ModeProps {
 
 const ModelView = ({
   index,
-  groupRef,
   gsapType,
-  controlRef,
-  setRotationState,
   item,
   size,
 }: ModeProps) => {
 
-  const tl = gsap.timeline();
-  const [smallRotation, setSmallRotation] = useState(0);
-  const [largeRotation, setLargeRotation] = useState(0);
 
   useGSAP(() => {
     if (size === "large") {

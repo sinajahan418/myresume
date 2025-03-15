@@ -1,6 +1,5 @@
 "use client";
 import { useBasket } from "@/stor/basket";
-import { BasketItem } from "@/stor/basket/type";
 import React from "react";
 
 const Basket = () => {

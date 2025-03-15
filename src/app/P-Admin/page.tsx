@@ -16,6 +16,7 @@ const page = () => {
   const [products, setProducts] = useState([]);
   const [loding, setLoding] = useState(false);
   const getAllProducts = async () => {
+    
     setLoding(true);
     const res = await fetch("http://localhost:5000/api/v1/products/");
     const data = await res.json();

@@ -4,24 +4,7 @@ import React from "react";
 import { FaSearch } from "react-icons/fa";
 import { IoNotificationsSharp } from "react-icons/io5";
 
-interface User  {
-  _id: string;
-  username: string;
-  email: string;
-  password: string;
-  profilePic: string;
-  createdAt: string;
-  updatedAt: string;
-  __v: number;
-};
-
 const AdminNav = () => {
-  let user: User | null | any  = localStorage.getItem("user");
-  if (user) {
-   user =JSON.parse(user);
-  }
-
-
   return (
     <div className="w-full flex items-center justify-around">
       <div className="flex gap-4 items-center">
@@ -34,7 +17,7 @@ const AdminNav = () => {
         </span>
       </div>
       <div className="flex gap-4 items-center">
-        <span>{user.username}</span>
+        <span>{}</span>
         <span>
           <IoNotificationsSharp />
         </span>

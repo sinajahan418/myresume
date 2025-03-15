@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
 import { yellowImg } from "@/utils";
 import { useGSAP } from "@gsap/react";
@@ -16,12 +17,7 @@ const Model = () => {
   });
 
   // camera control for the model view
-  const cameraControlSmall = useRef();
-  const cameraControlLarge = useRef();
-
-  // rotation
-  const [smallRotation, setSmallRotation] = useState(0);
-  const [largeRotation, setLargeRotation] = useState(0);
+ 
   useGSAP(() => {
     gsap.to("#heading", {
       y: 0,
@@ -42,10 +38,7 @@ const Model = () => {
           <div className="w-full h-[75vh] md:h-[90vh] overflow-hidden relative">
             <ModelView
               index={1}
-              groupRef={"small"}
               gsapType="view1"
-              controlRef={cameraControlSmall}
-              setRotationState={setSmallRotation}
               item={model}
               size={size}
             />

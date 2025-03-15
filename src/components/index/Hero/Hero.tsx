@@ -6,7 +6,11 @@ import { useEffect, useState } from "react";
 
 const Hero = () => {
   const [videoSrc, setVideoSrc] = useState(
-    window.innerWidth < 760 ? smallHeroVideo : heroVideo
+    typeof window !== "undefined"
+      ? window.innerWidth < 760
+        ? smallHeroVideo
+        : heroVideo
+      : ""
   );
 
   useEffect(() => {
